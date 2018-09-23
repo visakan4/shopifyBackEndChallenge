@@ -43,6 +43,16 @@ This repo contains the code for the [Shopify - Developer Winter 2019 Challenge](
 
 REQUEST TYPE: POST
 
+*STEPS*
+
+1. Get the Input JSON
+2. Prepare the Query to insert into the Shops table
+3. Execute the query
+4. If the query execution is successful set the shopStatus to SHOP_ADDED and statusCode to 201.
+5. If the query is not successful set the shopStatus to SHOP_NOT_ADDED and statusCode to 409. 
+5. Get the shopId from and form the response JSON
+6. Return the response
+
 REQUEST
 
 ```
@@ -82,6 +92,17 @@ FAILURE:
 2. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/setShop
 
 REQUEST TYPE: DELETE
+
+*STEPS*
+
+1. Get the Input JSON
+2. Check if the shopId exists.
+3. If the shopId does not exist set the shopStatus to SHOP_ID_NOT_FOUND and return the response.
+4. Prepare the Query to delete the shop from Shops table
+5. Execute the query
+6. If the query execution is successful set the shopStatus to SHOP_DELETED and statusCode to 201.
+7. If the query is not successful set the shopStatus to SHOP_NOT_DELETED and statusCode to 409. 
+8. Form the response JSON and return it.
 
 REQUEST
 
@@ -133,6 +154,17 @@ FAILURE:
 
 REQUEST TYPE: POST
 
+*STEPS*
+
+1. Get the Input JSON
+2. Check if the shopId exists.
+3. If the shopId does not exist set the shopStatus to SHOP_ID_NOT_FOUND and return the response.
+4. Prepare the Query to update the shop from Shops table
+5. Execute the query
+6. If the query execution is successful set the shopStatus to SHOP_UPDATED and statusCode to 201.
+7. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409. 
+8. Form the response JSON and return it.
+
 REQUEST
 
 ```
@@ -183,6 +215,13 @@ FAILURE
 4. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/getShops
 
 REQUEST TYPE: GET
+
+*STEPS*
+
+1. Execute the query
+2. If the query execution is successful iterate rhough the results and form the response JSON.
+3. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409. 
+4. Return the response JSON.
 
 RESPONSE
 
