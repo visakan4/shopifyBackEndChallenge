@@ -6,6 +6,8 @@ This repo contains the code for the [Shopify - Developer Winter 2019 Challenge](
 
 * Application supports CRUD operations for all the tables (SHOPS, PRODUCTS, ORDERS, LINEITEMS).
 * Application secure from the SQL Injection.
+* Database instance is created in Azure
+* Application is hosted in Dalhouse bluenose server
 
 ## Technologies
 
