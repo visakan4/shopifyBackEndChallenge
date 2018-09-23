@@ -13,7 +13,7 @@
 
 ## Database Schema
 
-![Database Schema](https://github.com/visakan4/shopifyBackEndChallenge/blob/master/images/schema.png "Schema diagram")
+![Database Schema](https://github.com/visakan4/shopifyBackEndChallenge/blob/master/images/schema.png "Database Schema")
 
 ## Architecture
 
