@@ -22,8 +22,11 @@ This repo contains the code for the [Shopify - Developer Winter 2019 Challenge](
 ### Details
 
 **HOST** : visakandatabase.mysql.database.azure.com
+
 **User name**: visakanadmin@visakandatabase
+
 **Password** : P@ssword@123
+
 **Database name**: shopify
 
 ### Database schema
