@@ -5,6 +5,9 @@
 
 ## Technologies
 
+Languages: PHP
+Framework : Phalcon (Micro application)
+Database: MySQL
 
 ## Database Schema
 
