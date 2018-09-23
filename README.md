@@ -282,12 +282,13 @@ REQUEST TYPE: POST
 
 REQUEST:
 
-RESPONSE:
 ```
 {
 	"shop_id" : 1
 }
 ```
+
+RESPONSE:
 
 SUCCESS:
 ```
