@@ -26,9 +26,6 @@ This repo contains the code for the [Shopify - Developer Winter 2019 Challenge](
 ## Functionalities
 
 
-## Security
-
-
 ## Setup
 
 
