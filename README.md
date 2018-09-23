@@ -17,6 +17,7 @@
 
 ## Architecture
 
+![Architecture](https://github.com/visakan4/shopifyBackEndChallenge/blob/master/images/architecture.PNG "Architecture")
 
 ## Functionalities
 
