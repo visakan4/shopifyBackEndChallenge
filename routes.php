@@ -17,33 +17,33 @@ $loader->register();
 
 $di = new FactoryDefault();
 
-//$di->set(
-//    'db',
-//    function () {
-//        return new PdoMysql(
-//            [
-//                'host'     => 'visakandatabase.mysql.database.azure.com',
-//                'username' => 'visakanadmin@visakandatabase',
-//                'password' => 'P@ssword@123',
-//                'dbname'   => 'mysql',
-//            ]
-//        );
-//    }
-//);
-
 $di->set(
     'db',
     function () {
         return new PdoMysql(
             [
-                'host'     => 'db.cs.dal.ca',
-                'username' => 'jeyakumar',
-                'password' => 'B00784080',
-                'dbname'   => 'jeyakumar',
+                'host'     => 'visakandatabase.mysql.database.azure.com',
+                'username' => 'visakanadmin@visakandatabase',
+                'password' => 'P@ssword@123',
+                'dbname'   => 'shopify',
             ]
         );
     }
 );
+
+//$di->set(
+//    'db',
+//    function () {
+//        return new PdoMysql(
+//            [
+//                'host'     => 'db.cs.dal.ca',
+//                'username' => 'jeyakumar',
+//                'password' => 'B00784080',
+//                'dbname'   => 'jeyakumar',
+//            ]
+//        );
+//    }
+//);
 
 $app = new Micro($di);
 
@@ -209,65 +209,76 @@ $app->delete(
 $app->post(
     "/updateShop",
     function () use ($app){
-        $shop = $app -> request -> getJsonRawBody();
+        try{
+            $shop = $app -> request -> getJsonRawBody();
 
-        $phql = 'SELECT * FROM tables\SHOPS where shopId = (:shop_id:)';
+            $phql = 'SELECT * FROM tables\SHOPS where shopId = (:shop_id:)';
 
-        $checkShop =$app->modelsManager->executeQuery(
-            $phql,[
-                "shop_id" => $shop -> shop_id
-            ]
-        );
-
-        $response = new Response();
-
-        if (count($checkShop) != 0){
-            $phql ='UPDATE tables\SHOPS SET shopName = :shopName: WHERE shopId = :shopId:';
-
-            $status =$app->modelsManager->executeQuery(
+            $checkShop =$app->modelsManager->executeQuery(
                 $phql,[
-                    "shopName" => $shop -> shop_name,
-                    "shopId" => $shop -> shop_id
+                    "shop_id" => $shop -> shop_id
                 ]
             );
 
+            $response = new Response();
 
-            if ($status->success() === True){
-                $response->setStatusCode(201,"CREATED");
-                $response->setJsonContent(
-                    [
-                        "status" => "SUCCESS",
-                        "data" => array(["shopStatus" => "SHOP_UPDATED"])
+            if (count($checkShop) != 0){
+                $phql ='UPDATE tables\SHOPS SET shopName = :shopName: WHERE shopId = :shopId:';
+
+                $status =$app->modelsManager->executeQuery(
+                    $phql,[
+                        "shopName" => $shop -> shop_name,
+                        "shopId" => $shop -> shop_id
                     ]
                 );
-            }
-            else{
-                $response->setStatusCode(409,"FAILURE");
 
-                $errors = [];
-
-                foreach ($status->getMessages() as $message) {
-                    $errors[] = $message->getMessage();
+                if ($status->success() === True){
+                    $response->setStatusCode(201,"CREATED");
+                    $response->setJsonContent(
+                        [
+                            "status" => "SUCCESS",
+                            "data" => array(["shopStatus" => "SHOP_UPDATED"])
+                        ]
+                    );
                 }
+                else{
+                    $response->setStatusCode(409,"FAILURE");
 
+                    $errors = [];
+
+                    foreach ($status->getMessages() as $message) {
+                        $errors[] = $message->getMessage();
+                    }
+
+                    $response->setJsonContent(
+                        [
+                            "status" => "SUCCESS",
+                            "data" => array(["shopStatus" => "SHOP_NOT_UPDATED"]),
+                            "errors" => $errors
+                        ]
+                    );
+                }
+                return $response;
+            }else{
+                $response->setStatusCode(409,"CONFLICT");
                 $response->setJsonContent(
                     [
                         "status" => "SUCCESS",
-                        "data" => array(["shopStatus" => "SHOP_NOT_UPDATED"]),
-                        "errors" => $errors
+                        "data" => array(["shopStatus" => "SHOP_ID_NOT_FOUND"]),
                     ]
                 );
+                return $response;
             }
-            return $response;
-        }else{
+        }catch (Exception $e){
+            $response = new Response();
             $response->setStatusCode(409,"CONFLICT");
             $response->setJsonContent(
                 [
-                    "status" => "SUCCESS",
-                    "data" => array(["shopStatus" => "SHOP_ID_NOT_FOUND"]),
+                    "status" => "FAILURE",
+                    "data" => array(["shopStatus" => "SHOP_NOT_UPDATED"]),
+                    "errors" => $e->getMessage()
                 ]
             );
-
             return $response;
         }
     }
@@ -342,7 +353,7 @@ $app->post(
                     [
                         "status" => "SUCCESS",
                         "data" => array(["productStatus" => "PRODUCT_ADDED",
-                            "shopId" => $model->productId])
+                            "productId" => $model->productId])
                     ]
                 );
             }
