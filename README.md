@@ -17,7 +17,16 @@ This repo contains the code for the [Shopify - Developer Winter 2019 Challenge](
 
 **Database:** MySQL
 
-## Database Schema
+## Database
+
+### Details
+
+**HOST** : visakandatabase.mysql.database.azure.com
+**User name**: visakanadmin@visakandatabase
+**Password** : P@ssword@123
+**Database name**: shopify
+
+### Database schema
 
 ![Database Schema](https://github.com/visakan4/shopifyBackEndChallenge/blob/master/images/schema.png "Database Schema")
 
