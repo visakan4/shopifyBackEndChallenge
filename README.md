@@ -313,8 +313,6 @@ SUCCESS:
 }
 ```
 
-FAILURE:
-
 8. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/updateProduct
 
 REQUEST TYPE: POST
@@ -331,6 +329,8 @@ REQUEST:
 ```
 
 RESPONSE:
+
+SUCCESS:
 ```
 {
     "status": "SUCCESS",
