@@ -2,6 +2,9 @@
 
 ## Summary
 
+This repo contains the code for the [Shopify - Developer Winter 2019 Challenge](https://docs.google.com/document/d/1YYDRf_CgQRryf5lZdkZ2o3Hm3erFSaISL1L1s8kLqsI/edit). In order to solve the problem, an micro application is created with help from [Phalcon (PHP Framework)](https://en.wikipedia.org/wiki/Phalcon_(framework)). Below listed are some highlights of the application
+
+
 
 ## Technologies
 
