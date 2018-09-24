@@ -604,6 +604,6 @@ FAILURE:
 * Install Phalcon
 * Setup IDE Stubs for Phalcon
 * Setup XAMPP
-* Clone the repository using `git@github.com:visakan4/Visual_System_IPL_ML.git`
+* Clone the repository using `git@github.com:visakan4/shopifyBackEndChallenge.git`
 * Place the cloned repo in the htdocs folder of the XAMPP server
 * Run the server and test the API using Postman or any other tool
