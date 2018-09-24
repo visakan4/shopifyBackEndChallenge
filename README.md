@@ -604,8 +604,8 @@ REQUEST TYPE: POST
 3. If the orderId does not exist set the orderStatus to ORDER_ID_NOT_FOUND and return the response.
 4. Prepare the Query to update the orderStatus to "CANCELLED" from Orders table
 5. Execute the query
-6. If the query execution is successful set the productStatus to ORDER_UPDATED and statusCode to 201.
-7. If the query is not successful set the productStatus to ORDER_NOT_UPDATED and statusCode to 409 and get the error messages. 
+6. If the query execution is successful set the orderStatus to ORDER_UPDATED and statusCode to 201.
+7. If the query is not successful set the orderStatus to ORDER_NOT_UPDATED and statusCode to 409 and get the error messages. 
 8. Form the response JSON(if failed with error message) and return it.
 
 REQUEST:
