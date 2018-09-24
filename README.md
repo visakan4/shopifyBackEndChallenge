@@ -9,6 +9,8 @@ This repo contains the code for the [Shopify - Developer Winter 2019 Challenge](
 * Database instance is created in Azure.
 * Application is hosted in Dalhousie bluenose server.
 
+*Dalhousie server sometimes is slow and the API's may return 500 Internal server error due to it. Kindly wait for few minutes and then retest it once again if 500 Interal server error happens.*
+
 ## Technologies
 
 **Languages:** PHP
