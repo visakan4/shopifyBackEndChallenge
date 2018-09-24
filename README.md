@@ -242,6 +242,17 @@ SUCCESS
 
 REQUEST TYPE: POST
 
+*STEPS*
+
+1. Get the Input JSON.
+2. Prepare the Query to insert into the Product table.
+3. Execute the query.
+4. If the query execution is successful set the productStatus to PRODUCT_ADDED and statusCode to 201.
+5. If the query is not successful set the productStatus to PRODUCT_NOT_ADDED and statusCode to 409. 
+5. Get the productId from and form the response JSON.
+6. Return the response.
+
+
 REQUEST
 ```
 {
@@ -283,6 +294,17 @@ FAILURE:
 
 REQUEST TYPE: DELETE
 
+*STEPS*
+
+1. Get the Input JSON
+2. Check if the productId exists.
+3. If the productId does not exist set the productStatus to PRODUCT_ID_NOT_FOUND and return the response.
+4. Prepare the Query to delete the product from Products table
+5. Execute the query
+6. If the query execution is successful set the shopStatus to PRODUCT_DELETED and statusCode to 201.
+7. If the query is not successful set the shopStatus to PRODUCT_NOT_DELETED and statusCode to 409. 
+8. Form the response JSON and return it.
+
 REQUEST:
 ```
 {
@@ -318,6 +340,15 @@ FAILURE:
 7. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/getProductsByshopId
 
 REQUEST TYPE: POST
+
+*STEPS*
+
+1. Get the Input JSON.
+2. Prepare the query to get the products by shopId.
+3. Execute the query.
+4. If the query execution is successful iterate though the results and form the response JSON.
+5. If the query is not successful get the error messages and form the response JSON.
+6. Return the response JSON.
 
 REQUEST:
 
@@ -355,6 +386,17 @@ SUCCESS:
 8. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/updateProduct
 
 REQUEST TYPE: POST
+
+*STEPS*
+
+1. Get the Input JSON
+2. Check if the productId exists.
+3. If the productId does not exist set the productStatus to PRODUCT_ID_NOT_FOUND and return the response.
+4. Prepare the Query to update the shop from Products table.
+5. Execute the query.
+6. If the query execution is successful set the productStatus to PRODUCT_UPDATED and statusCode to 201.
+7. If the query is not successful set the productStatus to PRODUCT_NOT_UPDATED and statusCode to 409 and get the error message. 
+8. Form the response JSON(with error message) and return it.
 
 REQUEST:
 ```
