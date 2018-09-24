@@ -819,7 +819,7 @@ $app->post("/updateOrderStatus",
 
             $order = $app -> request -> getJsonRawBody();
 
-            $phql = 'SELECT * FROM tables\ORDERS where orderId = (:orderId:)';
+            $phql = 'SELECT * FROM tables\ORDERS where orderId = (:orderId:) and OrderStatus != "CANCELLED"';
 
             $checkOrder = $app->modelsManager->executeQuery(
                 $phql,[
@@ -899,7 +899,7 @@ $app->post("/cancelOrder",
 
             $order = $app -> request -> getJsonRawBody();
 
-            $phql = 'SELECT * FROM tables\ORDERS where orderId = (:orderId:)';
+            $phql = 'SELECT * FROM tables\ORDERS where orderId = (:orderId:) and OrderStatus != "CANCELLED"';
 
             $checkOrder = $app->modelsManager->executeQuery(
                 $phql,[
