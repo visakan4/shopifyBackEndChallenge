@@ -89,7 +89,7 @@ FAILURE:
 }
 ```
 
-2. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/setShop
+2. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/deleteShop
 
 REQUEST TYPE: DELETE
 
@@ -441,11 +441,12 @@ REQUEST TYPE: POST
 *STEPS*
 
 1. Get the Input JSON
-2. Check if the order amount matches with the total of the line items amount
+2. Check if the order amount matches with the total of the line items amount.
 3. If the check is not succesfull set the orderStatus to ORDER_DETAILS_NOT_MATCHING and return the response
 4. If the check is successful follow the below steps:
 	1. Create an entry in the orders table.
 	2. Get the orderId and iterate through the product details JSON array and create items in the line items.
+	3. Reduce the quantity in the Product table.
 5. If the query execution is successful set the orderStatus to ORDER_PLACED and statusCode to 201.
 6. If the query is not successful set the orderStatus to ORDER_NOT_PLACED and statusCode to 409 and get the error message. 
 7. Get the orderId from and form the response JSON(if failed with error message).
@@ -604,7 +605,7 @@ REQUEST TYPE: POST
 3. If the orderId does not exist set the orderStatus to ORDER_ID_NOT_FOUND and return the response.
 4. Prepare the Query to update the orderStatus to "CANCELLED" from Orders table
 5. Execute the query
-6. If the query execution is successful set the orderStatus to ORDER_UPDATED and statusCode to 201.
+6. If the query execution is successful set the orderStatus to ORDER_UPDATED and update the quantity in the product table and set the statusCode to 201.
 7. If the query is not successful set the orderStatus to ORDER_NOT_UPDATED and statusCode to 409 and get the error messages. 
 8. Form the response JSON(if failed with error message) and return it.
 
