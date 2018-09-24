@@ -50,7 +50,7 @@ REQUEST TYPE: POST
 3. Execute the query
 4. If the query execution is successful set the shopStatus to SHOP_ADDED and statusCode to 201.
 5. If the query is not successful set the shopStatus to SHOP_NOT_ADDED and statusCode to 409 and get the error message. 
-5. Get the shopId from and form the response JSON(with error message).
+5. Get the shopId from and form the response JSON(if failed with error message).
 6. Return the response
 
 REQUEST
@@ -102,7 +102,7 @@ REQUEST TYPE: DELETE
 5. Execute the query
 6. If the query execution is successful set the shopStatus to SHOP_DELETED and statusCode to 201.
 7. If the query is not successful set the shopStatus to SHOP_NOT_DELETED and statusCode to 409 and get the error message. 
-8. Form the response JSON(with error message) and return it.
+8. Form the response JSON(if failed with error message) and return it.
 
 REQUEST
 
@@ -163,7 +163,7 @@ REQUEST TYPE: POST
 5. Execute the query
 6. If the query execution is successful set the shopStatus to SHOP_UPDATED and statusCode to 201.
 7. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409 and get the error messages. 
-8. Form the response JSON(with error message) and return it.
+8. Form the response JSON(if failed with error message) and return it.
 
 REQUEST
 
@@ -221,7 +221,7 @@ REQUEST TYPE: GET
 1. Execute the query
 2. If the query execution is successful iterate rhough the results and form the response JSON.
 3. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409 and get the error messages. 
-4. Return the response JSON(with error message).
+4. Return the response JSON(if failed with error message).
 
 RESPONSE
 
@@ -249,7 +249,7 @@ REQUEST TYPE: POST
 3. Execute the query.
 4. If the query execution is successful set the productStatus to PRODUCT_ADDED and statusCode to 201.
 5. If the query is not successful set the productStatus to PRODUCT_NOT_ADDED and statusCode to 409 and the error messages. 
-5. Get the productId from and form the response JSON(with error message).
+5. Get the productId from and form the response JSON(if failed with error message).
 6. Return the response.
 
 REQUEST
@@ -302,7 +302,7 @@ REQUEST TYPE: DELETE
 5. Execute the query
 6. If the query execution is successful set the productStatus to PRODUCT_DELETED and statusCode to 201.
 7. If the query is not successful set the productStatus to PRODUCT_NOT_DELETED and statusCode to 409 and get the error messages. 
-8. Form the response JSON(with error message) and return it.
+8. Form the response JSON(if failed with error message) and return it.
 
 REQUEST:
 ```
@@ -346,8 +346,8 @@ REQUEST TYPE: POST
 2. Prepare the query to get the products by shopId.
 3. Execute the query.
 4. If the query execution is successful iterate though the results and form the response JSON.
-5. If the query is not successful get the error messages and form the response JSON.
-6. Return the response JSON.
+5. If the query is not successful get the error messages and form the response JSON (if failed with error message).
+6. Return the response JSON .
 
 REQUEST:
 
@@ -395,7 +395,7 @@ REQUEST TYPE: POST
 5. Execute the query.
 6. If the query execution is successful set the productStatus to PRODUCT_UPDATED and statusCode to 201.
 7. If the query is not successful set the productStatus to PRODUCT_NOT_UPDATED and statusCode to 409 and get the error message. 
-8. Form the response JSON(with error message) and return it.
+8. Form the response JSON(if failed with error message) and return it.
 
 REQUEST:
 ```
@@ -437,6 +437,19 @@ FAILURE:
 9. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/setOrder
 
 REQUEST TYPE: POST
+
+*STEPS*
+
+1. Get the Input JSON
+2. Check if the order amount matches with the total of the line items amount
+3. If the check is not succesfull set the orderStatus to ORDER_DETAILS_NOT_MATCHING and return the response
+4. If the check is successful follow the below steps:
+	1. Create an entry in the orders table.
+	2. Get the orderId and iterate through the product details JSON array and create items in the line items.
+5. If the query execution is successful set the orderStatus to ORDER_PLACED and statusCode to 201.
+6. If the query is not successful set the orderStatus to ORDER_NOT_PLACED and statusCode to 409 and get the error message. 
+7. Get the orderId from and form the response JSON(if failed with error message).
+8. Return the response
 
 REQUEST:
 ```
