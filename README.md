@@ -559,7 +559,7 @@ REQUEST TYPE: POST
 *STEPS*
 
 1. Get the Input JSON
-2. Check if the orderId exists.
+2. Check if the orderId exists and orderStatus is not in CANCELLED state.
 3. If the orderId does not exist set the orderStatus to ORDER_ID_NOT_FOUND and return the response.
 4. Prepare the Query to update the orderStatus from Orders table
 5. Execute the query
@@ -603,7 +603,7 @@ FAILURE:
 REQUEST TYPE: POST
 
 1. Get the Input JSON
-2. Check if the orderId exists.
+2. Check if the orderId exists and make sure that order is not in CANCELLED state.
 3. If the orderId does not exist set the orderStatus to ORDER_ID_NOT_FOUND and return the response.
 4. Prepare the Query to update the orderStatus to "CANCELLED" from Orders table
 5. Execute the query
