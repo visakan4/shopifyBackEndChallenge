@@ -438,6 +438,9 @@ FAILURE:
 ```
 9. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/setOrder
 
+Here the lineItem_price in the request would be lineItem_quantity * product_price (Product Table price)
+Example : lineItem_quantity = 2 product_price is 120. lineItem_price is 240.
+
 REQUEST TYPE: POST
 
 *STEPS*
