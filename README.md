@@ -49,8 +49,8 @@ REQUEST TYPE: POST
 2. Prepare the Query to insert into the Shops table
 3. Execute the query
 4. If the query execution is successful set the shopStatus to SHOP_ADDED and statusCode to 201.
-5. If the query is not successful set the shopStatus to SHOP_NOT_ADDED and statusCode to 409. 
-5. Get the shopId from and form the response JSON
+5. If the query is not successful set the shopStatus to SHOP_NOT_ADDED and statusCode to 409 and get the error message. 
+5. Get the shopId from and form the response JSON(with error message).
 6. Return the response
 
 REQUEST
@@ -101,8 +101,8 @@ REQUEST TYPE: DELETE
 4. Prepare the Query to delete the shop from Shops table
 5. Execute the query
 6. If the query execution is successful set the shopStatus to SHOP_DELETED and statusCode to 201.
-7. If the query is not successful set the shopStatus to SHOP_NOT_DELETED and statusCode to 409. 
-8. Form the response JSON and return it.
+7. If the query is not successful set the shopStatus to SHOP_NOT_DELETED and statusCode to 409 and get the error message. 
+8. Form the response JSON(with error message) and return it.
 
 REQUEST
 
@@ -162,8 +162,8 @@ REQUEST TYPE: POST
 4. Prepare the Query to update the shop from Shops table
 5. Execute the query
 6. If the query execution is successful set the shopStatus to SHOP_UPDATED and statusCode to 201.
-7. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409. 
-8. Form the response JSON and return it.
+7. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409 and get the error messages. 
+8. Form the response JSON(with error message) and return it.
 
 REQUEST
 
@@ -220,8 +220,8 @@ REQUEST TYPE: GET
 
 1. Execute the query
 2. If the query execution is successful iterate rhough the results and form the response JSON.
-3. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409. 
-4. Return the response JSON.
+3. If the query is not successful set the shopStatus to SHOP_NOT_UPDATED and statusCode to 409 and get the error messages. 
+4. Return the response JSON(with error message).
 
 RESPONSE
 
@@ -248,10 +248,9 @@ REQUEST TYPE: POST
 2. Prepare the Query to insert into the Product table.
 3. Execute the query.
 4. If the query execution is successful set the productStatus to PRODUCT_ADDED and statusCode to 201.
-5. If the query is not successful set the productStatus to PRODUCT_NOT_ADDED and statusCode to 409. 
-5. Get the productId from and form the response JSON.
+5. If the query is not successful set the productStatus to PRODUCT_NOT_ADDED and statusCode to 409 and the error messages. 
+5. Get the productId from and form the response JSON(with error message).
 6. Return the response.
-
 
 REQUEST
 ```
@@ -301,9 +300,9 @@ REQUEST TYPE: DELETE
 3. If the productId does not exist set the productStatus to PRODUCT_ID_NOT_FOUND and return the response.
 4. Prepare the Query to delete the product from Products table
 5. Execute the query
-6. If the query execution is successful set the shopStatus to PRODUCT_DELETED and statusCode to 201.
-7. If the query is not successful set the shopStatus to PRODUCT_NOT_DELETED and statusCode to 409. 
-8. Form the response JSON and return it.
+6. If the query execution is successful set the productStatus to PRODUCT_DELETED and statusCode to 201.
+7. If the query is not successful set the productStatus to PRODUCT_NOT_DELETED and statusCode to 409 and get the error messages. 
+8. Form the response JSON(with error message) and return it.
 
 REQUEST:
 ```
