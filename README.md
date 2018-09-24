@@ -498,6 +498,15 @@ FAILURE:
 
 10. API:https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/getOrders
 
+*STEPS*
+
+1. Get the Input JSON.
+2. Prepare the query to get the products by shopId.
+3. Execute the query.
+4. If the query execution is successful iterate though the results and form the response JSON.
+5. If the query is not successful get the error messages and form the response JSON (if failed with error message).
+6. Return the response JSON.
+
 REQUEST TYPE: POST
 
 REQUEST:
@@ -544,6 +553,17 @@ SUCCESS
 
 REQUEST TYPE: POST
 
+*STEPS*
+
+1. Get the Input JSON
+2. Check if the orderId exists.
+3. If the orderId does not exist set the orderStatus to ORDER_ID_NOT_FOUND and return the response.
+4. Prepare the Query to update the orderStatus from Orders table
+5. Execute the query
+6. If the query execution is successful set the productStatus to ORDER_UPDATED and statusCode to 201.
+7. If the query is not successful set the productStatus to ORDER_NOT_UPDATED and statusCode to 409 and get the error messages. 
+8. Form the response JSON(if failed with error message) and return it.
+
 REQUEST:
 ```
 {
@@ -578,6 +598,15 @@ FAILURE:
 12. API: https://web.cs.dal.ca/~jeyakumar/csci5709/shopifyDeveloperChallenge/cancelOrder
 
 REQUEST TYPE: POST
+
+1. Get the Input JSON
+2. Check if the orderId exists.
+3. If the orderId does not exist set the orderStatus to ORDER_ID_NOT_FOUND and return the response.
+4. Prepare the Query to update the orderStatus to "CANCELLED" from Orders table
+5. Execute the query
+6. If the query execution is successful set the productStatus to ORDER_UPDATED and statusCode to 201.
+7. If the query is not successful set the productStatus to ORDER_NOT_UPDATED and statusCode to 409 and get the error messages. 
+8. Form the response JSON(if failed with error message) and return it.
 
 REQUEST:
 ```
